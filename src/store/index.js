@@ -65,9 +65,9 @@ store
   .on(inversionEvent, (state: State): State => {
     let { firstArgument, secondArgument } = state;
     if (secondArgument) {
-      secondArgument = (parseFloat(secondArgument) * (-1)).toString();
+      secondArgument = (parseFloat(secondArgument || 0) * (-1)).toString();
     } else {
-      firstArgument = (parseFloat(firstArgument) * (-1)).toString();
+      firstArgument = (parseFloat(firstArgument || 0) * (-1)).toString();
     }
     return ({
       ...state,
