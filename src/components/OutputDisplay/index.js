@@ -18,7 +18,7 @@ const labelStyle = {
   fontSize: 100,
   fontWeight: '200',
 };
-// 86.4
+
 class OutputDisplay extends React.PureComponent<{ label: string }> {
   render() {
     const { label } = this.props;
