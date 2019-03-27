@@ -2,18 +2,22 @@
 
 import type { State, Reducer } from '../types';
 
+const handleInputPointToArgument = (oldValue: ?string): ?string => {
+  if (!oldValue) return '0.';
+  if (oldValue.indexOf('.') === -1) {
+    return `${oldValue}.`;
+  }
+  return oldValue;
+};
+
 const inputPointReducer: Reducer<void> = (state: State): State => {
-  let { firstArgument, secondArgument } = state;
-  if (state.promotedOperation && !secondArgument) {
-    secondArgument = '0.';
-  } else if (secondArgument) {
-    if (secondArgument.indexOf('.') === -1) {
-      secondArgument += '.';
-    }
-  } else if (!firstArgument) {
-    firstArgument = '0.';
-  } else if (firstArgument.indexOf('.') === -1) {
-    firstArgument += '.';
+  let firstArgument = state.firstArgument || null;
+  let secondArgument = state.secondArgument || null;
+
+  if (!state.promotedOperation) {
+    firstArgument = handleInputPointToArgument(firstArgument);
+  } else {
+    secondArgument = handleInputPointToArgument(secondArgument);
   }
   return ({
     ...state,

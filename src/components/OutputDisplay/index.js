@@ -40,8 +40,8 @@ const SmartOutputDisplay = createComponent<{}, State>(store, (props, state: Stat
   }
   label = label.replace('.', ',');
 
-  // we don't wanna see ',' if this is very last
-  if (label[label.length - 1] === ',') {
+  // we don't wanna see ',' if this is very last in long value
+  if (label.length === MAX_DIGITS && label[label.length - 1] === ',') {
     label = label.substring(0, label.length - 1);
   }
 
