@@ -5,7 +5,7 @@ import { View, Text } from 'react-native';
 import { createComponent } from 'effector-react';
 
 import store from '@/store';
-import type { State } from '@/store';
+import type { State } from '@/store/types';
 
 import { gutter } from '@/config/layout';
 import theme from '@/config/theme';

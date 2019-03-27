@@ -2,14 +2,7 @@
 
 import { createEvent } from 'effector';
 
-export const OPERATIONS = {
-  PLUS: 'plus',
-  MINUS: 'minus',
-  MULTIPLY: 'multiply',
-  DIVIDE: 'divide',
-};
-
-export type TwoArgsOperation = $Values<typeof OPERATIONS>;
+import type { TwoArgsOperation } from './types';
 
 export const inputEvent = createEvent<string>('input');
 export const inversionEvent = createEvent<void>('inversion');

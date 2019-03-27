@@ -5,7 +5,8 @@ import { View } from 'react-native';
 import { createComponent } from 'effector-react';
 
 import store from '@/store';
-import type { State } from '@/store';
+import { OPERATIONS } from '@/store/types';
+import type { State, TwoArgsOperation } from '@/store/types';
 import {
   inputEvent,
   setOperationEvent,
@@ -13,9 +14,7 @@ import {
   resetEvent,
   calculateEvent,
   inputPointEvent,
-  OPERATIONS,
 } from '@/store/events';
-import type { TwoArgsOperation } from '@/store/events';
 
 import { gutter } from '@/config/layout';
 
