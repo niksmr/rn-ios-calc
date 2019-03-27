@@ -21,6 +21,7 @@ const doCalculationReducer: Reducer<void> = (state: State): State => {
       result = a / b;
       break;
     default:
+      return { ...state };
   }
 
   // IEEE 754; 0.1 + 0.2 = 0.3
