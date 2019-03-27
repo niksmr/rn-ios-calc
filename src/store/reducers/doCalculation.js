@@ -22,10 +22,13 @@ const doCalculationReducer: Reducer<void> = (state: State): State => {
       break;
     default:
   }
+
+  // IEEE 754; 0.1 + 0.2 = 0.3
+  const resultString = parseFloat(result.toFixed(10)).toString();
   return {
     ...state,
     ...defaultState,
-    firstArgument: result.toString(),
+    firstArgument: resultString,
   };
 };
 
