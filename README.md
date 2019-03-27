@@ -1,4 +1,4 @@
-### Ios-like calculator. Built with:
+### iOS-like calculator. Built with:
 - React native ([expo](https://expo.io/))
 - [flow](https://flow.org/)
 - [effector](https://github.com/zerobias/effector)
