@@ -26,10 +26,25 @@ class OutputDisplay extends React.PureComponent<{ label: string }> {
   }
 }
 
+const MAX_DIGITS = 10;
 
 const SmartOutputDisplay = createComponent<{}, State>(store, (props, state: State) => {
   let label: string = state.secondArgument || state.firstArgument || '0';
-  label = label.replace('.', ',').substring(0, 12);
+  const floatValue = parseFloat(label);
+
+  // cut long labels
+  if (Math.abs(floatValue) > 10 ** (MAX_DIGITS - 1)) {
+    label = floatValue.toExponential(MAX_DIGITS - 3).toString().replace('+', '');
+  } else {
+    label = label.substring(0, MAX_DIGITS);
+  }
+  label = label.replace('.', ',');
+
+  // we don't wanna see ',' if this is very last
+  if (label[label.length - 1] === ',') {
+    label = label.substring(0, label.length - 1);
+  }
+
   return (
     <OutputDisplay label={label} />
   );
