@@ -5,14 +5,14 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "check-types": "flow",
-    "check-style": "eslint App.js && eslint src",
-    "check-all": "npm run check-types && npm run check-style"
+    "check:types": "flow",
+    "check:style": "eslint App.js && eslint src",
+    "check": "npm run check:types && npm run check:style"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run check-all",
-      "pre-push": "npm run check-all"
+      "pre-commit": "npm run check",
+      "pre-push": "npm run check"
     }
   },
   "dependencies": {
