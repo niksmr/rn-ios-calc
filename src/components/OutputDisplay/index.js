@@ -14,15 +14,22 @@ class OutputDisplay extends React.PureComponent<{ label: string }> {
     const { label } = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.label}>{label}</Text>
+        <Text
+          style={styles.createForLabel(label)}
+          numberOfLines={1}
+          adjustsFontSizeToFit
+        >
+          {label}
+        </Text>
       </View>
     );
   }
 }
 
+
 const SmartOutputDisplay = createComponent<{}, State>(store, (props, state: State) => {
-  let label = state.secondArgument || state.firstArgument || '0';
-  label = label.replace('.', ',').substring(0, 6);
+  let label: string = state.secondArgument || state.firstArgument || '0';
+  label = label.replace('.', ',').substring(0, 12);
   return (
     <OutputDisplay label={label} />
   );
