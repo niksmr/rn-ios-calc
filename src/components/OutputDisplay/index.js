@@ -7,24 +7,14 @@ import { createComponent } from 'effector-react';
 import store from '@/store';
 import type { State } from '@/store';
 
-import { gutter } from '@/config/layout';
-import theme from '@/config/theme';
-
-const containerStyle = {
-  paddingRight: gutter,
-};
-const labelStyle = {
-  color: theme.text,
-  fontSize: 100,
-  fontWeight: '200',
-};
+import styles from './styles';
 
 class OutputDisplay extends React.PureComponent<{ label: string }> {
   render() {
     const { label } = this.props;
     return (
-      <View style={containerStyle}>
-        <Text style={labelStyle}>{label}</Text>
+      <View style={styles.container}>
+        <Text style={styles.label}>{label}</Text>
       </View>
     );
   }
